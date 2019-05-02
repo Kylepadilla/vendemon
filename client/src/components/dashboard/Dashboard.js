@@ -2,12 +2,16 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import MapContainer from '../Maps'
 
 class Dashboard extends Component {
+
+
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
   };
+
 
   render() {
     const { user } = this.props.auth;
@@ -35,8 +39,10 @@ class Dashboard extends Component {
             >
               Logout
             </button>
+
           </div>
         </div>
+              <MapContainer></MapContainer>
       </div>
     );
   }
