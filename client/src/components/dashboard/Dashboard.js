@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import MapContainer from '../Maps'
-
+import Chat from '../Chat/Chat'
 class Dashboard extends Component {
 
 
@@ -43,7 +43,9 @@ class Dashboard extends Component {
           </div>
         </div>
               <MapContainer></MapContainer>
+              <Chat></Chat>
       </div>
+     
     );
   }
 }
