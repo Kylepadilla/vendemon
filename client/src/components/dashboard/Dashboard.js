@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import MapContainer from '../Maps/index'
 import Chat from '../Chat/Chat'
-
-import { Button, Card, Row, Col } from 'react-materialize';
+import Alerts from '../layout/Alerts'
+import { Button, Card, Row, Col, Modal, TextInput } from 'react-materialize';
 
 
 class Dashboard extends Component {
@@ -25,29 +25,27 @@ class Dashboard extends Component {
       <div>
         <Row>
           <Col s={4} className="teal white-text">
-            1
+          <Modal header="Modal Header" fixedFooter trigger={<Button>Spot Something</Button>}>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+<TextInput placeholder="Name" />
+<TextInput placeholder="Address" />
+<TextInput placeholder="Phone (required)" />
+<TextInput placeholder="Description" />
+<TextInput placeholder="Description" />
+</Modal>
 </Col>
           <Col s={4} className="teal white-text">
-            2
+
 </Col>
           <Col s={3} className="teal white-text">
-            3
-</Col>
-        </Row>
-
-        <Row>
-          <Col s={4} className="teal white-text">
-            <div style={{ height: "75vh" }} className="container valign-wrapper">
-              <div className="row">
+         
+              
                 <div className="landing-copy col s12 center-align">
                   <h4>
                     <b>Hey there,</b> {user.name.split(" ")[0]}
-                    <p className="flow-text grey-text text-darken-1">
-                      You are logged into a full-stack{" "}
-                      <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
-            </p>
                   </h4>
-                  <button
+                </div>
+                <button
                     style={{
                       width: "150px",
                       borderRadius: "3px",
@@ -59,17 +57,27 @@ class Dashboard extends Component {
                   >
                     Logout
           </button>
+          <Modal header="Modal Header" trigger={<Button>Chat!</Button>}>
+          <p>Chat below</p>
+          <Chat></Chat>
+          </Modal>
+           
+</Col>
+        </Row>
 
-                </div>
-              </div>
-            </div>
+        <Row>
+          {/* Alerts Container */}
+          <Col s={4} className="teal white-text">
+                    <Alerts></Alerts>
           </Col> 
-
+            {/* Map container */}
           <Col s={4} className="teal white-text">
             <MapContainer></MapContainer>
           </Col>
+
+          {/* Chat Modal */}
           <Col s={3} className="teal white-text">
-            <Chat></Chat>
+          Hello
           </Col>
 
         </Row>
