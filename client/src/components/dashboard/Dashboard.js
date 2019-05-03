@@ -2,8 +2,13 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import MapContainer from '../Maps'
+import MapContainer from '../Maps/index'
 import Chat from '../Chat/Chat'
+// import Weather from '../Weather/index'
+import {Row , Col } from 'react-materialize'
+// import { OpenWeatherMap } from 'react-weather';
+
+
 class Dashboard extends Component {
 
 
@@ -17,16 +22,18 @@ class Dashboard extends Component {
     const { user } = this.props.auth;
 
     return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
+<div>
+<Row>
+<Col s={4} className="teal white-text">
+<div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="landing-copy col s12 center-align">
             <h4>
               <b>Hey there,</b> {user.name.split(" ")[0]}
-              <p className="flow-text grey-text text-darken-1">
-                You are logged into a full-stack{" "}
-                <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
-              </p>
-            </h4>
+              </h4>
+              <div>
+              {/* <OpenWeatherMap city="Jerusalem" country="IL" appid="35784240997be91f92a57a40329788d1" /> */}
+              </div>
             <button
               style={{
                 width: "150px",
@@ -42,8 +49,15 @@ class Dashboard extends Component {
 
           </div>
         </div>
-              <MapContainer></MapContainer>
-              <Chat></Chat>
+      </div>
+</Col>
+<Col s={4} className="teal white-text">
+<MapContainer></MapContainer>
+</Col>
+<Col s={3} className="teal white-text">
+<Chat></Chat>
+</Col>
+</Row>
       </div>
      
     );
