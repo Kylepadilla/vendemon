@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import MapContainer from '../Maps'
+import MapContainer from '../Maps/index'
 import Chat from '../Chat/Chat'
+
 import { Button, Card, Row, Col } from 'react-materialize';
+
 
 class Dashboard extends Component {
 
@@ -19,6 +21,7 @@ class Dashboard extends Component {
     const { user } = this.props.auth;
 
     return (
+
       <div>
         <Row>
           <Col s={4} className="teal white-text">
@@ -70,6 +73,7 @@ class Dashboard extends Component {
           </Col>
 
         </Row>
+
 
       </div>
 
