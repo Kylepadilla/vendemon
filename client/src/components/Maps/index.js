@@ -1,11 +1,18 @@
 import React, { Component } from 'react'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+
+import "./styles.css";
+
 require('dotenv').config()
+
  
 export class MapContainer extends Component {
+  
   render() {
     return (
-      <Map google={this.props.google} zoom={14}>
+      
+      <Map style={style}  id="map" google={this.props.google} zoom={14}>
+      
  
         <Marker onClick={this.onMarkerClick}
                 name={'Current location'} />
@@ -16,9 +23,18 @@ export class MapContainer extends Component {
             </div>
         </InfoWindow>
       </Map>
+      
     );
   }
 }
+
+const style = {
+  maxWidth: '30%',
+  height: 'auto'
+
+}
+
+
  
 
 export default GoogleApiWrapper({
