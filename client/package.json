@@ -11,9 +11,11 @@
     "materialize-css": "^1.0.0-rc.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-materialize": "^3.2.1",
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
+    "react-weather": "^0.1.3",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "socket.io-client": "^2.2.0"
