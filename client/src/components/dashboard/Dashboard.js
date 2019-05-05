@@ -6,16 +6,31 @@ import MapContainer from '../Maps/index'
 import Chat from '../Chat/Chat'
 import Alerts from '../layout/Alerts'
 import { Button, Card, Row, Col, Modal, TextInput } from 'react-materialize';
+import API from "../../utils/API";
+
 
 
 class Dashboard extends Component {
 
+  state = {
+    alerts: [],
+  }
 
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
   };
 
+  alert_Refresh = i =>{
+      API.getAlerts()
+        .then(res=>{
+          console.log(res.data)
+          this.setState({
+            alerts: res.data
+          })
+          .catch(err=>console.log(err))
+        })
+  }
 
   render() {
     const { user } = this.props.auth;
@@ -68,7 +83,20 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         <Row>
           {/* Alerts Container */}
           <Col s={4} className="teal white-text">
-                    <Alerts></Alerts>
+                     {this.state.alerts.map((alert, i) => {
+                       return (
+                      <Alerts
+                    id= {alert._id}
+                    team_id={alert.team_id}
+                    location={alert.location}
+                    est_Cost={alert.est_Cost}
+                    job_Type={alert.job_Type}
+                    job_Description={alert.job_Description}
+                    post_date={alert.post_date}
+                    />);
+                    }
+                    )}
+                                        
           </Col> 
             {/* Map container */}
           <Col s={4} className="teal white-text">

@@ -1,59 +1,67 @@
-import React, { Component }from 'react';
-import {Table} from 'react-materialize';
+import React, { Component } from 'react';
+// import {Table} from 'react-materialize';
+import { Button } from 'react-materialize';
 
 
-const Alerts = props => 
 
-    <Table>
-<thead>
-<tr>
-<th data-field="id">
-Name
+
+
+
+
+
+const Alerts = props =>
+<div>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th data-field="id">
+                    ID
 </th>
-<th data-field="name">
-Item Name
+                <th data-field="team_id">
+                    Team_ID
 </th>
-<th data-field="price">
-Item Price
+                <th data-field="Location">
+                    Location
 </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-Alvin
-</td>
-<td>
-Eclair
-</td>
-<td>
-$0.87
-</td>
-</tr>
-<tr>
-<td>
-Alan
-</td>
-<td>
-Jellybean
-</td>
-<td>
-$3.76
-</td>
-</tr>
-<tr>
-<td>
-Jonathan
-</td>
-<td>
-Lollipop
-</td>
-<td>
-$7.00
-</td>
-</tr>
-</tbody>
-</Table>
-
-
+                <th data-field="Location">
+                    est_Cost
+</th>
+                <th data-field="Location">
+                    Job_type
+</th>
+                <th data-field="Location">
+                    Description
+</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    {props.id}
+                </td>
+                <td>
+                    {props.team_id}
+                </td>
+                <td>
+                    {props.location}
+                </td>
+                <td>
+                    {props.est_Cost}
+                </td>
+                <td>
+                    {props.job_Type}
+                </td>
+                <td>
+                    {props.job_Description}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <div>
+        <button className = "btn btn primary" onClick={()=>props.alerts_Refresh()}></button>
+        </div>
+        </div>
 export default Alerts
