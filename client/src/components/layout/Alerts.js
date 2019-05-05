@@ -1,13 +1,4 @@
-import React, { Component } from 'react';
-// import {Table} from 'react-materialize';
-import { Button } from 'react-materialize';
-
-
-
-
-
-
-
+import React from 'react';
 
 const Alerts = props =>
 <div>
