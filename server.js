@@ -25,6 +25,7 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
+app.use("/api/alerts", alerts);
 
 
 
