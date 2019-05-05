@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 5000;
 // require socket io for chat feature
 const socket = require('socket.io');
 const users = require("./routes/api/users");
+const alerts = require("./routes/api/alerts");
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
