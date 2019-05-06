@@ -5,7 +5,7 @@ import { logoutUser } from "../../actions/authActions";
 import MapContainer from '../Maps/index'
 import Chat from '../Chat/Chat'
 import Alerts from '../layout/Alerts'
-import { Button, Card, Row, Col, Modal, TextInput } from 'react-materialize';
+import { Button, Row, Col, Modal, TextInput, Checkbox } from 'react-materialize';
 import API from "../../utils/API";
 
 
@@ -16,11 +16,14 @@ class Dashboard extends Component {
     alerts: [],
   }
 
+// Logs out the current user and sends them back to the home page
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
   };
 
+
+// loads and refreshes the alerts to  the dash board
   alert_Refresh = i =>{
       API.getAlerts()
         .then(res=>{
@@ -44,9 +47,34 @@ class Dashboard extends Component {
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 <TextInput placeholder="Name" />
 <TextInput placeholder="Address" />
-<TextInput placeholder="Phone (required)" />
 <TextInput placeholder="Description" />
-<TextInput placeholder="Description" />
+<TextInput placeholder="Estimated Cost" />
+<TextInput placeholder="Materials Needed (optional)" />
+<Checkbox
+  value="Red"
+  label="Landscape"
+  filledIn
+  checked
+/>
+<Checkbox
+  value="Red"
+  label="Tree"
+  filledIn
+  checked
+/>
+<Checkbox
+  value="Red"
+  label="irrigation"
+  filledIn
+  checked
+/>
+<Checkbox
+  value="Red"
+  label="other"
+  filledIn
+  checked
+/>
+ <Button>Submit</Button>
 </Modal>
 </Col>
           <Col s={4} className="teal white-text">
@@ -83,6 +111,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         <Row>
           {/* Alerts Container */}
           <Col s={4} className="teal white-text">
+          {/* button that loads the alerts bar */}
+          <Button onClick={this.alert_Refresh()}></Button>
+
+          {/* maps over the alerts and displays the alerts */}
                      {this.state.alerts.map((alert, i) => {
                        return (
                       <Alerts

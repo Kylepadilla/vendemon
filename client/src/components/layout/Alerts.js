@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Alerts = props =>
+
 <div>
 
 <div>
