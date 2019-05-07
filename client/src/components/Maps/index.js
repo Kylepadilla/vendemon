@@ -29,8 +29,8 @@ export class MapContainer extends Component {
 }
 
 const style = {
-  maxWidth: '30%',
-  height: '75vh'
+  maxWidth: '58%',
+  height: '60vh'
 
 }
 

@@ -131,14 +131,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                                         
           </Col> 
             {/* Map container */}
-          <Col s={4} className="teal white-text">
+          <Col s={7} className="teal white-text">
             <MapContainer></MapContainer>
           </Col>
 
-          {/* Chat Modal */}
-          <Col s={3} className="teal white-text">
-          Hello
-          </Col>
+          
 
         </Row>
 
@@ -157,6 +154,8 @@ Dashboard.propTypes = {
 const mapStateToProps = state => ({
   auth: state.auth
 });
+
+
 
 export default connect(
   mapStateToProps,
