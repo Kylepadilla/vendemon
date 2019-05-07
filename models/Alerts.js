@@ -2,25 +2,25 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 // Create Schema
 const AlertSchema = new Schema({
-  team_id: {
+  Team_ID: {
     type: String,
     required: true
   },
-  location: {
+  Type: {
     type: String,
     required: true
   },
-  est_Cost: {
+  Address: {
     type: String,
     required: true
   },
-  job_Type: {
+  City: {
     type: String,
-    required: true
+    required: false
   },
-  job_Description: {
+  Description: {
     type: String,
-    required: true
+    required: false
   },
   post_date: {
     type: Date,
