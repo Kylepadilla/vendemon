@@ -14,11 +14,11 @@ router.post("/create", (req, res) => {
       .catch(err => res.status(422).json(err));
 });
 
-// router.get("/api/alerts"), (req, res)=> {
-//     Alert
-//     .find(req.query)
-//     .sort({ date: -1 })
-//     .then(dbModel => res.json(dbModel))
-//     .catch(err => res.status(422).json(err));
-// }
+router.get("/create", (req, res)=> {
+    Alert
+    .find(req.query)
+    .sort({ date: -1 })
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+});
 module.exports = router;

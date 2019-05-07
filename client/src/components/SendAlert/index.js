@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+
 import { sendAlert } from "../../actions/alertsActions"
-import { connect } from "react-redux"
+
 
 
 class SendAlert extends Component{
@@ -178,10 +178,6 @@ constructor(){
 )
 }
 }
-
-// SendAlert.propTypes = {
-//   sendAlert: PropTypes.func.isRequired
-// };
 
 
 export default SendAlert
