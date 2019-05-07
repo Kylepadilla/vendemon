@@ -1,17 +1,20 @@
 import React, { Component } from "react";
-import API from "../../utils/API";
+
+import { sendAlert } from "../../actions/alertsActions"
 
 
 
 class SendAlert extends Component{
-        state = {
+constructor(){
+  super()
+       this.state = {
             Team_ID: '',
             Type: '',
             Address:'',
             City:'',
             Description:'',
         };
-
+      }
 
     handleInputChange = e => {
             const { name, value } = e.target;
@@ -28,20 +31,26 @@ class SendAlert extends Component{
                 Type: jobType
             })
         }
-    sendAlert = e => {
-            API.saveAlert({
-                Team_ID: this.state.Team_ID.toString(),
-                Type: this.state.Type,
-                Address: this.state.Address,
-                City: this.state.City,
-                Description: this.state.Description
-            })
-            .then( res => alert(this.state.Team_ID +" has been posted "+ res.data ))
-            .catch( err => console.log( err ))
-        }
+
+    submitAlert = e => {
+
+      e.preventDefault();
+
+      const alertData = {
+        Team_ID: this.state.Team_ID,
+        Type: this.state.Type,
+        Address: this.state.Address,
+        City: this.state.City,
+        Description:this.state.Description
+      };
+
+     sendAlert(alertData);
+     console.log(alertData)
+    }
     
 
  render(){
+
     return (   
         // FORM FOR SUBMITTING AN ALERT
         <div className="row">
@@ -110,6 +119,18 @@ class SendAlert extends Component{
         <span>Irrigation</span>
       </label>
     </p>
+{/* Pest & Fertilizer */}
+    <p>
+      <label>
+        <input 
+        type="checkbox" 
+        className="filled-in"
+        name="Type" 
+        value="Pest/ Fertilizer"
+        onChange={this.handleCheck} />
+        <span>Pest/ fertilizer</span>
+      </label>
+    </p>
              {/* ======INPUT AREA===== */}
 {/* Address */}
     <div className="row">
@@ -150,7 +171,7 @@ class SendAlert extends Component{
               value={this.state.Description}/>
             </div>
             </div>
-            <button onClick={this.sendAlert} className="btn btn-outline-secondary">Submit</button>
+            <button onClick={this.submitAlert} className="btn btn-outline-secondary">Submit</button>
 </form>
 </div>
       
@@ -158,6 +179,8 @@ class SendAlert extends Component{
 }
 }
 
+
 export default SendAlert
+
 
 

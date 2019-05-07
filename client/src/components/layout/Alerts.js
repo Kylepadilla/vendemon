@@ -34,26 +34,28 @@ const Alerts = props =>
                     {props.id}
                 </td>
                 <td>
-                    {props.team_id}
+                    {props.Team_ID}
                 </td>
                 <td>
-                    {props.location}
+                    {props.Type}
                 </td>
                 <td>
-                    {props.est_Cost}
+                    {props.Address}
                 </td>
                 <td>
-                    {props.job_Type}
+                    {props.City}
                 </td>
                 <td>
-                    {props.job_Description}
+                    {props.Description}
+                </td>
+                <td>
+                    {props.post_date}
                 </td>
             </tr>
         </tbody>
     </table>
     </div>
     <div>
-        <button className = "btn btn primary" onClick={()=>props.alerts_Refresh()}></button>
         </div>
         </div>
 export default Alerts
