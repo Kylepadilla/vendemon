@@ -27,4 +27,7 @@ const AlertSchema = new Schema({
     default: Date.now
   }
 });
-module.exports = Alert = mongoose.model("alerts", AlertSchema);
+
+const Alert =  mongoose.model("alerts", AlertSchema)
+
+module.exports = Alert

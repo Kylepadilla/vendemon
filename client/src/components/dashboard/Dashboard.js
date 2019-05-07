@@ -2,20 +2,17 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import { fetchAlerts} from "../../actions/alertsActions";
 import MapContainer from '../Maps/index'
 import Chat from '../Chat/Chat'
 import Alerts from '../layout/Alerts'
 import { Button, Row, Col, Modal } from 'react-materialize';
-import API from "../../utils/API";
 import SendAlert from "../SendAlert"
 
 
 
 class Dashboard extends Component {
 
-  state = {
-    alerts: [],
-  }
 
 // Logs out the current user and sends them back to the home page
   onLogoutClick = e => {
@@ -25,20 +22,21 @@ class Dashboard extends Component {
 
 
 // loads and refreshes the alerts to  the dash board
-  alert_Refresh = i =>{
-      API.getAlerts()
-        .then(res=>{
-          console.log(res.data)
-          this.setState({
-            alerts: res.data
-          })
-          .catch(err=>console.log(err))
-        })
+  alert_Refresh = e =>{
+    this.props.dispatch(fetchAlerts());
   }
 
   render() {
     const { user } = this.props.auth;
+    const { error, loading, alerts } = this.props;
 
+    if (error) {
+      return <div>Error! {error.message}</div>;
+    }
+
+    if (loading) {
+      return <div>Loading...</div>;
+    }
     return (
 
 <div className = "Dashboard">
@@ -75,10 +73,11 @@ class Dashboard extends Component {
           {/* button that loads the alerts bar */}
           <Button onClick={this.alert_Refresh}>Refresh</Button>
           {/* maps over the alerts and displays the alerts */}
-                     {this.state.alerts.map((alert, i) => {
+                     {alerts.map((alert) => {
                        return (
                       <Alerts
-                    id= {alert._id}
+                    id= {alert.id}
+                    key={alert.id}
                     Team_ID={alert.Team_ID}
                     Type={alert.Type}
                     Address={alert.Address}
@@ -106,7 +105,10 @@ Dashboard.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  alerts: state.alerts.alerts,
+  loading: state.alerts.loading,
+  error: state.alerts.error
 });
 
 export default connect(
