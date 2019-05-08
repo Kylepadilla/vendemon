@@ -1,44 +1,60 @@
 import React, {Component} from 'react'
-import { OpenWeatherMap } from 'react-weather';
 import axios from 'axios'
 
 class WeatherContainer extends Component {
     constructor () {
         super()
 this.state = {
-    lon: '',
-    lat: '',
-    city: '',
-    country:''
+    forecast: '',
+    tempMax: '',
+    tempMin:'',
+    sunset:''
 }
 }
 
 componentDidMount(){
-let api = 'AIzaSyDcjOBGMGmfQdfQ5odnm2azxH11GQ_YMZo'
-    axios.get("https://www.googleapis.com/geolocation/v1/geolocate?key=" + api).then(res=>{
-        console.log(res.data)
-        this.setState({
-            lon: res.data.lon,
-            lat: res.data.lat
-        })
-        }).then(
-            axios.get("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + this.state.lat + "," + this.state.lon + "&key=" + api).then(res=>{
-                console.log(res.data)
+let api = '35784240997be91f92a57a40329788d1';
+axios.get("http://api.openweathermap.org/data/2.5/weather?q=orlando,us&appid="+api)
+            .then( res => {
+                console.log(res.data);
+                const forecast = res.data.weather.main;
+                const tempMax = res.data.main.temp_max;
+                const tempMin = res.data.main.temp_min;
+                const sunset = res.data.sys.sunset;
                 this.setState({
-                    city: res.data.city,
-                    country: res.data.country
-                })
+                    forecast: forecast,
+                    tempMax: tempMax,
+                    tempMin: tempMin,
+                    sunset: sunset                
+                });
             })
-        )}
-
+            .catch(err=> console.log(err))
+        };
 
 render(){
+
 return(
 <div className="weather">
-<OpenWeatherMap city={this.state.city} country={this.state.country} appid="35784240997be91f92a57a40329788d1" />
+
+<div className="row">
+    <div className="col s12 m6">
+      <div className="card blue-grey darken-1">
+        <div className="card-content white-text">
+          <span className="card-title">Orlando, Fl</span>
+                <ul>
+                    <li><b>{this.state.forecast}</b></li>
+                    <li>high: {this.state.tempMax}</li>
+                    <li>Low: {this.state.tempMin}</li>
+                    <li>Sunset: {this.state.sunset}</li>
+                </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+            
 </div>
 )
-}
+};
 }
 export default WeatherContainer
 

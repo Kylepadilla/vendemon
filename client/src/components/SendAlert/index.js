@@ -8,11 +8,16 @@ class SendAlert extends Component{
 constructor(){
   super()
        this.state = {
-            Team_ID: '',
             Type: '',
             Address:'',
             City:'',
-            Description:'',
+            Bath: '',
+            Bedrooms: '',
+            Pool: '',
+            sqft: '',
+            realtor: '',
+            phone: '',
+            price: '',
         };
       }
 
@@ -24,11 +29,11 @@ constructor(){
         };
     
     handleCheck = (e) => {
-            let jobType = e.target.value
+            let property = e.target.value
 
-            console.log(jobType)
+            console.log(property)
             this.setState({
-                Type: jobType
+                Type: property
             })
         }
 
@@ -37,11 +42,16 @@ constructor(){
       e.preventDefault();
 
       const alertData = {
-        Team_ID: this.state.Team_ID,
         Type: this.state.Type,
-        Address: this.state.Address,
-        City: this.state.City,
-        Description:this.state.Description
+        Address:this.state.Address,
+        City:this.state.City,
+        Bath: this.state.Bath,
+        Bedrooms: this.state.Bedrooms,
+        Pool: this.state.Pool,
+        sqft: this.state.sqft,
+        realtor: this.state.realtor,
+        phone: this.state.phone,
+        price: this.state.price
       };
 
      sendAlert(alertData);
@@ -55,82 +65,50 @@ constructor(){
         // FORM FOR SUBMITTING AN ALERT
         <div className="row">
         <form className="col s12">
-        {/* Team_ID input */}
-          <div className="row">
-            <div className="input-field col s6">
-              <input 
-              placeholder="Team_ID" 
-              id="Team_ID" 
-              type="text" 
-              className="validate"
-              onChange={this.handleInputChange}
-              name="Team_ID"
-              value={this.state.Team_ID}/>
-              <span className="helper-text" data-error="wrong" data-success="right">ask your superviser if unsure</span>
-            </div>
-            </div>
-
               {/* =====CHECK BOXES===== */}
-{/* LawnMaintenance */}
+{/* FOR SALE */}
+        <div className="row">
+        <div className="col s6">
     <p>
       <label>
         <input 
         type="checkbox" 
-        className="filled-in" 
-        value="Lawn Maintenance"
+        className="filled-in"
+        name="Type"
+        value="For Sale"
         onChange={this.handleCheck}
-         />
-        <span>Lawn Maintenance</span>
+        disabled={this.state.Type === "For Rent" || "Potential Lead" ? ("True") : ("false")} />
+        <span>For sale</span>
       </label>
     </p>
-{/* LandscapeImprovements */}
+{/* FOR RENT*/}
     <p>
       <label>
         <input 
         type="checkbox" 
         className="filled-in" 
         name="Type"
-        value="Landscape Impropvements"
-        onChange={this.handleCheck} />
-        <span>Landscape Improvments</span>
+        value="For Rent"
+        onChange={this.handleCheck}
+        disabled={this.state.Type === "For Sale" || "Potential Lead" ? ("True") : ("false")} />
+        <span>For Rent</span>
       </label>
     </p>
-{/* Tree Work */}
+{/* POTENTIAL LEAD */}
     <p>
       <label>
         <input 
         type="checkbox" 
         className="filled-in"
         name="Type" 
-        value="Tree Work"
-        onChange={this.handleCheck} />
-        <span>Tree Work</span>
+        value="Potential Lead"
+        onChange={this.handleCheck}
+        disabled={this.state.Type === "For Rent" || "For Sale" ? ("True") : ("false")} />
+        <span>Potential Lead</span>
       </label>
     </p>
-{/* Irrigation */}
-    <p>
-      <label>
-        <input 
-        type="checkbox" 
-        className="filled-in"
-        name="Type" 
-        value="Irrigation"
-        onChange={this.handleCheck} />
-        <span>Irrigation</span>
-      </label>
-    </p>
-{/* Pest & Fertilizer */}
-    <p>
-      <label>
-        <input 
-        type="checkbox" 
-        className="filled-in"
-        name="Type" 
-        value="Pest/ Fertilizer"
-        onChange={this.handleCheck} />
-        <span>Pest/ fertilizer</span>
-      </label>
-    </p>
+    </div>
+    </div>
              {/* ======INPUT AREA===== */}
 {/* Address */}
     <div className="row">
@@ -139,7 +117,6 @@ constructor(){
               placeholder="123 Main St." 
               id="Address" 
               type="text" 
-              className="validate"
               onChange={this.handleInputChange}
               name="Address"
               value={this.state.Address}/>
@@ -151,24 +128,84 @@ constructor(){
               placeholder="Orlando" 
               id="City" 
               type="text" 
-              className="validate"
               onChange={this.handleInputChange}
               name="City"
               value={this.state.City}/>
               <span className="helper-text" data-error="wrong" data-success="right">City</span>
             </div>
             </div>
-{/* Description */}
+
+{/* Bedrooms */}
             <div className="row">
-            <div className="input-field col s12">
+            <div className="input-field col s3">
               <input 
-              placeholder="Please be as descriptive as possible..." 
-              id="Description" 
+              placeholder="Bedrooms" 
+              id="Bedrooms" 
               type="text" 
-              className="validate"
               onChange={this.handleInputChange}
-              name="Description"
-              value={this.state.Description}/>
+              name="Bedrooms"
+              value={this.state.Bedrooms}/>
+            </div>
+{/* Bath */}
+            <div className="input-field col s3">
+              <input 
+              placeholder="Bath" 
+              id="Bath" 
+              type="text" 
+              onChange={this.handleInputChange}
+              name="Bath"
+              value={this.state.Bath}/>
+              </div>
+
+            {/* Sqft */}
+            <div className="input-field col s3">
+              <input 
+              placeholder="SqFt" 
+              id="sqft" 
+              type="text" 
+              onChange={this.handleInputChange}
+              name="sqft"
+              value={this.state.sqft}/>
+            </div>
+            </div>
+
+{/* Pool */}
+<div className="row">
+    <p>
+      <label>
+        <input 
+        type="checkbox" 
+        className="filled-in"
+        name="Pool" 
+        value="YES"
+        onChange={this.handleCheck} />
+        <span>Pool</span>
+      </label>
+    </p>
+    </div>
+{/* Realtor */}
+    <div className="row">
+            <div className="input-field col s6">
+              <input 
+              placeholder="Realtor" 
+              id="Realtor" 
+              type="text" 
+              onChange={this.handleInputChange}
+              name="realtor"
+              value={this.state.Address}/>
+              <span className="helper-text" data-error="wrong" data-success="right">Realtor</span>
+            </div>
+            </div>
+{/* Price */}
+            <div className="row">
+            <div className="input-field col s3">
+              <input 
+              placeholder="List Price" 
+              id="ListPrice" 
+              type="text" 
+              onChange={this.handleInputChange}
+              name="price"
+              value={this.state.price}/>
             </div>
             </div>
             <button onClick={this.submitAlert} className="btn btn-outline-secondary">Submit</button>
