@@ -9,47 +9,44 @@ const Alerts = props =>
         <thead>
             <tr>
                 <th data-field="id">
-                    ID
-</th>
-                <th data-field="team_id">
                     Team_ID
 </th>
-                <th data-field="Location">
-                    Location
+                <th data-field="team_id">
+                    Type
 </th>
                 <th data-field="Location">
-                    est_Cost
+                    Address
 </th>
                 <th data-field="Location">
-                    Job_type
+                    City
 </th>
                 <th data-field="Location">
                     Description
+</th>
+                <th data-field="Location">
+                    Date
 </th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>
-                    {props.id}
+                {props.Team_ID}
                 </td>
                 <td>
-                    {props.Team_ID}
+                {props.Type}
                 </td>
                 <td>
-                    {props.Type}
+                {props.Address}
                 </td>
                 <td>
-                    {props.Address}
+                {props.City}
                 </td>
                 <td>
-                    {props.City}
+                {props.Description}
                 </td>
                 <td>
-                    {props.Description}
-                </td>
-                <td>
-                    {props.post_date}
+                {props.post_date}  
                 </td>
             </tr>
         </tbody>
@@ -58,4 +55,5 @@ const Alerts = props =>
     <div>
         </div>
         </div>
+        
 export default Alerts

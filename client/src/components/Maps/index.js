@@ -11,8 +11,7 @@ export class MapContainer extends Component {
   render() {
     return (
       
-      <Map style={style}  id="map" google={this.props.google} zoom={14}>
-      
+      <Map style={style}  id="map" google={this.props.google} zoom={14}>      
  
         <Marker onClick={this.onMarkerClick}
                 name={'Current location'} />

@@ -1,20 +1,30 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+import {PropTypes} from "prop-types";
 import { connect } from "react-redux";
-import { logoutUser } from "../../actions/authActions";
-// import { fetchAlerts} from "../../actions/alertsActions";
-import MapContainer from '../Maps/index'
+import  {logoutUser}  from "../../actions/authActions";
+import  MapContainer  from '../Maps'
 import Chat from '../Chat/Chat'
-import Alerts from '../layout/Alerts'
-import { Button, Row, Col, Modal } from 'react-materialize';
+import  Alerts  from '../layout/Alerts'
+import { Button, Row, Col, Modal, Icon, Parallax } from 'react-materialize';
 import SendAlert from "../SendAlert"
 import axios from "axios";
+import WeatherButton from '../Weather/Button'
+// import WeatherContainer from "../Weather"
 
 
 class Dashboard extends Component {
-  state = {
-    alerts:[]
-  }
+
+
+    state = {
+    alerts:[],
+    lon: '',
+    lat: '',
+    city: '',
+    country:'',
+    showWeather: false,
+    start: false
+}
+
 
 // Logs out the current user and sends them back to the home page
   onLogoutClick = e => {
@@ -24,86 +34,157 @@ class Dashboard extends Component {
 
 
 // loads and refreshes the alerts to  the dash board
-  alert_Refresh = e =>{
+  alert_Refresh = e => {
+    axios.get("/api/alerts/create")
+    .then(res => this.setState({alerts: res.data}))
+}
 
-  axios.get("/api/alerts/create")
-  .then(res => {
-  this.setState({
-    alerts: res.data
-  })
+//this click handler is assigned to the weather component ternary operator
+  clickHandler = e => {
+    this.state.showWeather ?  
+    (this.setState({showWeather: false})) : (this.setState({showWeather: true}))
+}
 
-})
-  }
+  onstart = e => {
+    this.state.start ? 
+    (this.setState({start: false})) : (this.setState({start: true}))
+}
 
-  render() {
+render() {
     const { user } = this.props.auth;
+
 return(
 
-<div className = "Dashboard">
-        <Row>
-          <Col style={{ width:"100"}} s={6} className="white black-text">
-          <h5>Please fill the information about the area that you spot a task for the company to fulfill.</h5>
-          <br></br>
-              <Modal header="Modal Header" fixedFooter trigger={<Button>Spot Something</Button>} >
-                      <SendAlert></SendAlert>
-              </Modal>  
+<div className = "Dashboard-Container">
 
-              <Modal header="Modal Header" trigger={<Button>Chat!</Button>}>
-              <p>Chat below</p>
-              <Chat/>
-              </Modal> 
-              </Col>
-          <Col s={6} className="white black-text" style={{textAlign:"center"}}>
-                <div className="landing-copy col s12 center-align">
-                  <h4><b>Hey there,</b> {user.name.split(" ")[0]}</h4>
-                </div>
-                <button
-                    style={{
-                      
-                      borderRadius: "3px",
-                      letterSpacing: "1.5px",
-                      marginTop: "1rem",
-                      marginRight: "10px",
-                      marginBottom:"10px",
-                      textAlign: "center"
-                    }}
-                    onClick={this.onLogoutClick}
-                    className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                  >Logout</button>
-         
-          </Col>
-         </Row>
+{/* =============TERNARY OPERATOR START ? (TRUE: SHOW DASH):(FALSE: SHOW PARALLAX)=========== */}
+{/* ============TRUE========================================= */}
+{/* ================SHOW DASH=============== */}
 
-        <Row>
-          {/* Alerts Container */}
-          <Col s={4} className="green white-text">
-          {/* button that loads the alerts bar */}
-          <Button onClick={this.alert_Refresh}>Refresh</Button>
-          {/* maps over the alerts and displays the alerts */}
-                     {this.state.alerts.map((alert) => {
-                       return (
-                      <Alerts
-                    id= {alert.id}
-                    key={alert.id}
-                    Team_ID={alert.Team_ID}
-                    Type={alert.Type}
-                    Address={alert.Address}
-                    City={alert.City}
-                    Description={alert.Description}
-                    post_date={alert.post_date}
-                    />);
-                    }
-                    )}</Col> 
-            {/* Map container */}
-          <Col s={4} className="teal white-text"><MapContainer/></Col>
+{this.state.start ? (
+  <div>
+<Row>
 
-          {/* Chat Modal */}
-          <Col s={4} className="teal white-text">Hello</Col>
+<Col s={6} className="teal white-text">
 
-        </Row>
+
+{/* ===================SEND ALERT BUTTON & MODAL=================== */}
+        <Modal header="Modal Header" fixedFooter trigger={<Button>Send Alert</Button>}>
+                <SendAlert></SendAlert>
+        </Modal>  
+</Col>
+<Col s={6} className="teal white-text">
+
+{/* =========================WELCOME....(name)==================== */}
+
+          <div className="landing-copy col s12 center-align">
+            <h4><b>Welcome Back, </b> {user.name.split(" ")[0]}</h4>
+
+          </div>
+{/* ============================LOG OUT BUTTON====================== */}
+          <button
+              style={{
+                width: "150px",
+                borderRadius: "3px",
+                letterSpacing: "1.5px",
+                marginTop: "1rem"
+              }}
+              onClick={this.onLogoutClick}
+              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+          >Logout</button>
+
+
+
+{/* ================================WEATHER======================= */}
+                              
+              <WeatherButton onclick={this.clickHandler}><Icon small> cloud</Icon></WeatherButton>  
+              {this.state.showWeather ? ("this should be weather container") : ("")}
+{/* The ternary operator ABOVE should recive a truthy : <WeatherContainer></WeatherContainer> Component */}
+
+
+
+{/* ============================CHAT & MODAL======================== */}
+    <Modal header="Modal Header" trigger={<Button>Chat!</Button>}>
+    <p>Chat below</p>
+    <Chat/>
+    </Modal> 
+
+
+</Col>
+</Row>
+
+  <Row>
+    <Col s={4} className="teal white-text">
+
+
+
+{/* =======================ALERTS REFRESHER AND Container================ */}
+
+{/* button that loads the alerts bar */}
+    <Button onClick={this.alert_Refresh}>Refresh</Button>
+
+{/* maps over the alerts and displays the alerts */}
+{this.state.alerts.map((alert) => {
+    return (
+          <Alerts
+              id= {alert.id}
+              key={alert._id}
+              Team_ID={alert.Team_ID}
+              Type={alert.Type}
+              Address={alert.Address}
+              City={alert.City}
+              Description={alert.Description}
+              post_date={alert.post_date}
+              />);
+              }
+              )}
+</Col> 
+
+
+{/* ======================GOOGLE Maps Container=================== */}
+    <Col s={4} className="teal white-text"><MapContainer/></Col>
+
+
+{/* ==========================EMPTY COLUMN======================== */}
+    <Col s={4} className="teal white-text">
+    
+    
+    </Col>
+
+  </Row>
+  </div>
+) : (
+
+<div>
+<Parallax image={<img src="https://wallpaperplay.com/walls/full/5/2/6/99911.jpg" alt="unavailable" />} />
+<div className="section white">
+<div className="row container">
+<h2 className="header">
+<b>Welcome Back,</b> {user.name.split(" ")[0]}
+</h2>
+<p className="landing-copy col s12 center-align">
+Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.
+</p>
+<h3>Company Announcements:</h3>
+<p>
+Social media market equity investor innovator non-disclosure agreement founders conversion user experience. Entrepreneur virality responsive web design gen-z. IPhone paradigm shift research & development bootstrapping infographic. Return on investment A/B testing ramen.
+
+Angel investor seed money direct mailing business plan social proof facebook stealth backing scrum project vesting period holy grail churn rate partnership low hanging fruit. Business model canvas android angel investor metrics traction startup research & development business-to-consumer influencer bandwidth. IPad monetization non-disclosure agreement business plan partnership disruptive validation early adopters low hanging fruit paradigm shift angel investor research & development facebook. Success venture creative handshake monetization mass market advisor infrastructure equity client.
+</p>
+<button type="button" className="btn btn-large waves-effect waves-light hoverable blue accent-3" onClick={this.onstart}>Dashboard</button>
+</div>
+</div>
+<Parallax image={<img src="https://wallpaperplay.com/walls/full/5/2/6/99911.jpg" alt="unavailable" />} />
+</div>
+
+)
+}
+
 </div>
     );
   }
+
+
 }
 
 Dashboard.propTypes = {
@@ -112,7 +193,7 @@ Dashboard.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  auth: state.auth,
+  auth: state.auth
 });
 
 export default connect(
