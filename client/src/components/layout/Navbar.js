@@ -24,6 +24,7 @@ class Navbar extends Component {
               <i className="material-icons">code</i>
               VENDEMON
             </Link>
+           
           </div>
         </nav>
       </div>
