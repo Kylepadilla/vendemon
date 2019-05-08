@@ -1,59 +1,67 @@
-import React from 'react';
+import React, { Component }from 'react';
+import axios from 'axios'
+import AlertContainer from './AlertContainer';
 
-const Alerts = props =>
+class Alerts extends Component {
+    state = {
+        alerts:[],
+    }
 
-<div>
 
-<div>
-    <table>
-        <thead>
-            <tr>
-                <th data-field="id">
-                    Team_ID
-</th>
-                <th data-field="team_id">
-                    Type
-</th>
-                <th data-field="Location">
-                    Address
-</th>
-                <th data-field="Location">
-                    City
-</th>
-                <th data-field="Location">
-                    Description
-</th>
-                <th data-field="Location">
-                    Date
-</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                {props.Team_ID}
-                </td>
-                <td>
-                {props.Type}
-                </td>
-                <td>
-                {props.Address}
-                </td>
-                <td>
-                {props.City}
-                </td>
-                <td>
-                {props.Description}
-                </td>
-                <td>
-                {props.post_date}  
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    </div>
-    <div>
+componentDidMount(){
+    axios.get("/api/alerts/create")
+    .then(res => this.setState({alerts: res.data}))
+}
+
+loadSaved(){
+    axios.get("/api/alerts/create")
+    .then(res => this.setState({alerts: res.data}))
+}
+
+removeAlert = i =>{
+
+    const property =  this.state.alerts[i]._id
+            
+    console.log(property)
+    axios.get("/api/alerts/create/" + property)
+      .then( res => this.loadSaved())
+      .catch(err => console.log(err));
+
+}
+
+render() {
+    return(
+        <div>
+            {this.state.alerts[0] ? ( 
+                <div>
+                {this.state.alerts.map((alert, i) => {
+            return (
+                  <AlertContainer
+                      id= {i}
+                      key={alert._id}
+                      Property_ID={alert.Property_ID}
+                      Type={alert.Type}
+                      Address={alert.Address}
+                      City={alert.City}
+                      Bedroom={alert.Bedrooms}
+                      Bath={alert.Bath}
+                      Pool={alert.Pool}
+                      sqft={alert.sqft}
+                      realtor={alert.realtor}
+                      phone={alert.phone}
+                      price={alert.price}
+                      post_date={alert.post_date}
+                      onclick={this.removeAlert}
+                      />);})}
+                      </div>):(<h4>No Results To Display</h4>)}
+       
         </div>
-        </div>
-        
+
+    )
+}
+
+
+}
+
 export default Alerts
+

@@ -21,4 +21,21 @@ router.get("/create", (req, res)=> {
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
 });
+
+router.get("/create/:id", (req, res)=> {
+    Alert
+    .findById({ _id: req.params.id })
+    .then(dbModel => dbModel.remove())
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+
+});
+
+
+
+
+
+
+
+
 module.exports = router;

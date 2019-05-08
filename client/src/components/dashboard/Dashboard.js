@@ -5,26 +5,17 @@ import  {logoutUser}  from "../../actions/authActions";
 import  MapContainer  from '../Maps'
 import Chat from '../Chat/Chat'
 import  Alerts  from '../layout/Alerts'
-import { Button, Row, Col, Modal, Icon, Parallax } from 'react-materialize';
+import { Button, Row, Col, Modal, Parallax, Collapsible, CollapsibleItem } from 'react-materialize';
 import SendAlert from "../SendAlert"
-import axios from "axios";
-import WeatherButton from '../Weather/Button'
-// import WeatherContainer from "../Weather"
+import WeatherContainer from "../Weather"
 
 
 class Dashboard extends Component {
 
-
     state = {
-    alerts:[],
-    lon: '',
-    lat: '',
-    city: '',
-    country:'',
-    showWeather: false,
-    start: false
+        alerts:[],
+        start: false
 }
-
 
 // Logs out the current user and sends them back to the home page
   onLogoutClick = e => {
@@ -32,12 +23,6 @@ class Dashboard extends Component {
     this.props.logoutUser();
   };
 
-
-// loads and refreshes the alerts to  the dash board
-  alert_Refresh = e => {
-    axios.get("/api/alerts/create")
-    .then(res => this.setState({alerts: res.data}))
-}
 
 //this click handler is assigned to the weather component ternary operator
   clickHandler = e => {
@@ -54,25 +39,29 @@ render() {
     const { user } = this.props.auth;
 
 return(
-
 <div className = "Dashboard-Container">
 
 {/* =============TERNARY OPERATOR START ? (TRUE: SHOW DASH):(FALSE: SHOW PARALLAX)=========== */}
+
+
 {/* ============TRUE========================================= */}
 {/* ================SHOW DASH=============== */}
 
 {this.state.start ? (
   <div>
 <Row>
-
+{/* Col-start */}
 <Col s={6} className="teal white-text">
-
+<WeatherContainer/>
 
 {/* ===================SEND ALERT BUTTON & MODAL=================== */}
         <Modal header="Modal Header" fixedFooter trigger={<Button>Send Alert</Button>}>
                 <SendAlert></SendAlert>
         </Modal>  
 </Col>
+
+
+{/* Col-start */}
 <Col s={6} className="teal white-text">
 
 {/* =========================WELCOME....(name)==================== */}
@@ -96,10 +85,7 @@ return(
 
 
 {/* ================================WEATHER======================= */}
-                              
-              <WeatherButton onclick={this.clickHandler}><Icon small> cloud</Icon></WeatherButton>  
-              {this.state.showWeather ? ("this should be weather container") : ("")}
-{/* The ternary operator ABOVE should recive a truthy : <WeatherContainer></WeatherContainer> Component */}
+
 
 
 
@@ -114,35 +100,28 @@ return(
 </Row>
 
   <Row>
-    <Col s={4} className="teal white-text">
 
+{/* Col-start */}
+<Col s={12} className="teal white-text">
+{/* =======================ALERTS================ */}
 
+<Collapsible popout>
+<CollapsibleItem header="Saved Properties" icon="place">
+<Alerts/>
+</CollapsibleItem>
+</Collapsible>
 
-{/* =======================ALERTS REFRESHER AND Container================ */}
-
-{/* button that loads the alerts bar */}
-    <Button onClick={this.alert_Refresh}>Refresh</Button>
-
-{/* maps over the alerts and displays the alerts */}
-{this.state.alerts.map((alert) => {
-    return (
-          <Alerts
-              id= {alert.id}
-              key={alert._id}
-              Team_ID={alert.Team_ID}
-              Type={alert.Type}
-              Address={alert.Address}
-              City={alert.City}
-              Description={alert.Description}
-              post_date={alert.post_date}
-              />);
-              }
-              )}
+{/* ================================= */}
 </Col> 
-
-
+</Row>
+<Row>
+{/* Col-start */}
+<Col s={4} className="teal white-text">
 {/* ======================GOOGLE Maps Container=================== */}
-    <Col s={4} className="teal white-text"><MapContainer/></Col>
+ <MapContainer/>
+ {/* ================================ */}
+ </Col>
+
 
 
 {/* ==========================EMPTY COLUMN======================== */}
