@@ -41,35 +41,42 @@ return(
 
 <div className = "Dashboard">
         <Row>
-          <Col s={6} className="teal white-text">
-              <Modal header="Modal Header" fixedFooter trigger={<Button>Spot Something</Button>}>
+          <Col style={{ width:"100"}} s={6} className="white black-text">
+          <h5>Please fill the information about the area that you spot a task for the company to fulfill.</h5>
+          <br></br>
+              <Modal header="Modal Header" fixedFooter trigger={<Button>Spot Something</Button>} >
                       <SendAlert></SendAlert>
               </Modal>  
+
+              <Modal header="Modal Header" trigger={<Button>Chat!</Button>}>
+              <p>Chat below</p>
+              <Chat/>
+              </Modal> 
               </Col>
-          <Col s={6} className="teal white-text">
+          <Col s={6} className="white black-text" style={{textAlign:"center"}}>
                 <div className="landing-copy col s12 center-align">
                   <h4><b>Hey there,</b> {user.name.split(" ")[0]}</h4>
                 </div>
                 <button
                     style={{
-                      width: "150px",
+                      
                       borderRadius: "3px",
                       letterSpacing: "1.5px",
-                      marginTop: "1rem"
+                      marginTop: "1rem",
+                      marginRight: "10px",
+                      marginBottom:"10px",
+                      textAlign: "center"
                     }}
                     onClick={this.onLogoutClick}
                     className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                   >Logout</button>
-          <Modal header="Modal Header" trigger={<Button>Chat!</Button>}>
-          <p>Chat below</p>
-          <Chat/>
-          </Modal> 
+         
           </Col>
          </Row>
 
         <Row>
           {/* Alerts Container */}
-          <Col s={4} className="teal white-text">
+          <Col s={4} className="green white-text">
           {/* button that loads the alerts bar */}
           <Button onClick={this.alert_Refresh}>Refresh</Button>
           {/* maps over the alerts and displays the alerts */}
