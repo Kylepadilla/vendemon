@@ -1,3 +1,18 @@
 .dashbtn{
     background-color: #333
 }
+
+.btn{
+   background-color: rgb(35,68,111);
+   font-family: 'Roboto', sans-serif;
+}
+
+h4 , p{
+    font-family: 'Roboto', sans-serif;
+}
+
+.card .card-content {
+    padding: 24px;
+    border-radius: 0 0 2px 2px;
+    background-color: rgb(35,68,111);
+}
