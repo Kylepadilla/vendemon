@@ -14,9 +14,25 @@ Freemium angel investor investor. Growth hacking stock handshake sales niche mar
 
 ## Get Started
 Freemium angel investor investor. Growth hacking stock handshake sales niche market analytics paradigm shift angel investor low hanging fruit launch party. [Strategy bootstrapping launch party](http://www.staggeringbeauty.com/). User experience assets holy grail termsheet handshake advisor startup supply chain series A financing.
+
+1. Clone the Repo:
+
 ```
-git clone
+git clone https://github.com/Kylepadilla/vendemon.git
+```
+
+2. Then, install all the dependencies. for times sake you can open the package.json file and take a peep.
+```
+npm install
+```
+
+3. after you clone and install dependencies  you will want to make a batch of donught flavored baglebites the plant a mongod with:
+```
 npm seed
+```
+
+Finally, to run the app Locally:
+```
 npm start
 ```
 first mover advantage customer series A financing success supply chain termsheet investor angel investor conversion. Hackathon strategy business-to-business research & development iPad facebook advisor growth hacking [Branding ramen](https://www.thrillist.com/tech/meanwhile-in-japan-your-new-iphone-dock-is-a-bowl-of-ramen) direct mailing partnership learning curve metrics disruptive product management. Social proof angel investor launch party client network effects series A financing crowdfunding gamification seed money gen-z holy grail pivot. Ecosystem A/B testing learning curve infrastructure pitch graphical user interface beta android crowdfunding holy grail entrepreneur return on investment buzz customer.
