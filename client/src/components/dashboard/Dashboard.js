@@ -7,10 +7,8 @@ import Chat from '../Chat/Chat';
 import  Alerts  from '../layout/Alerts';
 import { Button, Row, Col, Modal, Parallax, Collapsible, CollapsibleItem } from 'react-materialize';
 import SendAlert from "../SendAlert";
-import WeatherContainer from "../Weather";
-import Calendar from "../../Calendar";
-import WeatherContainer from "../Weather";
-import Calendar from "../Calendar";
+// import WeatherContainer from "../Weather";
+import Calendar from "../../components/Calendar";
 import "./styles.css";
 import ZillowWidget from "../Widget";
 
@@ -67,7 +65,7 @@ return(
 {/* ================================================================================== */}
 
 {/* ================================Weather======================================= */}
-                                <WeatherContainer></WeatherContainer>
+                                {/* <WeatherContainer/> */}
 {/* ========================================================================================= */}
 <div className="center-align all-features">
 {/* =============================Calendar & Modal================================ */}
@@ -146,7 +144,7 @@ return(
  {/* ========================================================= */}
 
  </Col>
-
+<Col>
 
 
 {/* ================================Zillow Widget======================================= */}

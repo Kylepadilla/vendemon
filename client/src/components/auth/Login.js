@@ -55,7 +55,7 @@ class Login extends Component {
 
     return (
 <div>
-<Parallax  image={<img src="http://getwallpapers.com/wallpaper/full/7/1/6/464954.jpg" alt="unavailable" height="200px"/>} />
+<Parallax  image={<img src="https://images.pexels.com/photos/372462/pexels-photo-372462.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="unavailable"/>} />
               <div className="container">
         <div style={{ marginTop: "4rem" }} className="row">
           <div className="col s8 offset-s2" style={{"margin-bottom": "50px"}}>
@@ -125,7 +125,7 @@ class Login extends Component {
           </div>
         </div>
         </div>
-        <Parallax image={<img src="http://getwallpapers.com/wallpaper/full/7/1/6/464954.jpg" alt="unavailable" />} />
+        <Parallax image={<img src="https://images.pexels.com/photos/2170473/pexels-photo-2170473.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="unavailable" />} />
 </div>
 
     );
