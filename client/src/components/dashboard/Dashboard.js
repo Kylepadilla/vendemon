@@ -8,6 +8,7 @@ import  Alerts  from '../layout/Alerts'
 import { Button, Row, Col, Modal, Parallax, Collapsible, CollapsibleItem } from 'react-materialize';
 import SendAlert from "../SendAlert"
 import WeatherContainer from "../Weather"
+import Calendar from "../../Calendar";
 
 
 class Dashboard extends Component {
@@ -43,76 +44,68 @@ return(
 
 {/* =============TERNARY OPERATOR START ? (TRUE: SHOW DASH):(FALSE: SHOW PARALLAX)=========== */}
 
-
-{/* ============TRUE========================================= */}
-{/* ================SHOW DASH=============== */}
-
+{/* ================================SHOW DASH=============================================== */}
+{/* ======================================================================================== */}
 {this.state.start ? (
   <div>
 {/* New Row */}
 <Row>
 {/* Col-start */}
     <Col s={6} className="teal white-text">
-    {/* ================================WEATHER======================= */}
+
+
+
+{/* ================================WEATHER======================================= */}
                                 <WeatherContainer/>
-    {/* ================================WEATHER(end)======================= */}
+{/* ========================================================================================= */}
 
 
 
-
-{/* ===================SEND ALERT BUTTON & MODAL=================== */}
-        <Modal header="Modal Header" fixedFooter trigger={<Button>Send Alert</Button>}>
-                <SendAlert></SendAlert>
-        </Modal>  
-{/* ===================SEND ALERT BUTTON & MODAL(end)=================== */}
 </Col>
-
-
-
-
 {/* Col-start */}
 <Col s={6} className="teal white-text">
 
 
 
 
-{/* =========================WELCOME============================= */}
-
-          <div className="landing-copy col s12 center-align">
-            <h4><b>Welcome Back, </b> {user.name.split(" ")[0]}</h4>
-
-          </div>
-{/* =========================WELCOME(end)==================== */}
+{/* =====================================WELCOME============================================= */}
+<div className="landing-copy col s12 center-align">
+  <h4><b>Welcome Back, </b> {user.name.split(" ")[0]}</h4>
+</div>
+{/* ================================================================================== */}
 
 
 
-
-{/* ============================LOG OUT BUTTON====================== */}
-          <button
-              style={{
-                width: "150px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                marginTop: "1rem"
-              }}
-              onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-          >Logout</button>
-{/* ============================LOG OUT BUTTON(end)====================== */}
-
-
-
+{/* =============================Calendar & Modal================================ */}
+        <Modal header="Modal Header" fixedFooter trigger={<Button>Calendar</Button>}>
+                      <Calendar></Calendar>
+        </Modal>  
+{/* ============================================================================== */}
 
 
 
 
 {/* ============================CHAT & MODAL======================== */}
-                          <Modal header="Modal Header" trigger={<Button>Chat!</Button>}>
-                          <p>Chat below</p>
-                          <Chat/>
-                          </Modal> 
-{/* ============================CHAT & MODAL (end)======================== */}
+        <Modal header="Modal Header" trigger={<Button>Chat!</Button>}>
+                  <p>Chat below</p>
+                      <Chat/>
+        </Modal> 
+{/* ============================================================== */}
 
+
+
+
+{/* ===================SEND ALERT BUTTON & MODAL=================== */}
+        <Modal header="Modal Header" fixedFooter trigger={<Button>Send Alert</Button>}>
+                              <SendAlert></SendAlert>
+        </Modal>  
+{/* ========================================================== */}
+
+
+
+{/* ============================LOG OUT BUTTON====================== */}
+        <Button onClick={this.onLogoutClick}>Log Out</Button>           
+{/* ===================================================================== */}
 </Col>
 </Row>
 
@@ -121,33 +114,45 @@ return(
   <Row>
 {/* Col-start */}
 <Col s={12} className="teal white-text">
+
+
+
 {/* =======================ALERTS================ */}
 
-                            <Collapsible popout>
-                            <CollapsibleItem header="Saved Properties" icon="place">
-                            <Alerts/>
-                            </CollapsibleItem>
-                            </Collapsible>
-
-{/* ===============ALERT(end)================== */}
-
+          <Collapsible popout>
+              <CollapsibleItem header="Saved Properties" icon="place">
+                          <Alerts/>
+            </CollapsibleItem>
+          </Collapsible>
+{/* ========================================================= */}
 </Col> 
 </Row>
+
+
+{/* Row Start */}
 <Row>
 {/* Col-start */}
 <Col s={4} className="teal white-text">
 
+
+
+
 {/* ======================GOOGLE Maps Container=================== */}
                               <MapContainer/>
- {/* ======================GOOGLE Maps Container(end)========== */}
+ {/* ========================================================= */}
+
  </Col>
 
 
         <Col s={4} className="teal white-text">
     </Col>
-  </Row>
+</Row>
   </div>
+
 ) : (
+  // =====================================Announcements Render============================
+  // =================================================================================
+
 // This is what renders on load and is the announcements page for the user
 <div>
 <Parallax image={<img src="https://wallpaperplay.com/walls/full/5/2/6/99911.jpg" alt="unavailable" />} />
@@ -157,9 +162,9 @@ return(
 <b>Welcome Back,</b> {user.name.split(" ")[0]}
 </h2>
 <p className="landing-copy col s12 center-align">
-Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.
 </p>
-<h3>Company Announcements:</h3>
+<h3 className='row' styles={"margin-top: 35px"}>Company Announcements:</h3>
+
 <p>
 Social media market equity investor innovator non-disclosure agreement founders conversion user experience. Entrepreneur virality responsive web design gen-z. IPhone paradigm shift research & development bootstrapping infographic. Return on investment A/B testing ramen.
 
@@ -174,6 +179,7 @@ Angel investor seed money direct mailing business plan social proof facebook ste
 )
 }
 
+{/* divwraper */}
 </div>
     );
   }
