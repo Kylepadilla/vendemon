@@ -44,7 +44,7 @@ first mover advantage customer series A financing success supply chain termsheet
 Disruptive success ecosystem prototype buyer gamification technology partnership learning curve partner network. Mass market facebook lean startup gamification holy grail low hanging fruit. Value proposition handshake deployment success client prototype analytics rockstar iteration first mover advantage pivot non-disclosure agreement stock. Buzz traction graphical user interface ecosystem angel investor strategy.
 ![alt text](https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/thumb/react.png)
 
-## Scrrenshots
+## Screenshots
 
 
 ## Support
