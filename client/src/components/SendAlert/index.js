@@ -18,6 +18,7 @@ constructor(){
             realtor: '',
             phone: '',
             price: '',
+            check:false,
         };
       }
 
@@ -30,7 +31,6 @@ constructor(){
     
     handleCheck = (e) => {
             let property = e.target.value
-
             console.log(property)
             this.setState({
                 Type: property
@@ -77,7 +77,8 @@ constructor(){
         name="Type"
         value="For Sale"
         onChange={this.handleCheck}
-        disabled={this.state.Type === "For Rent" || "Potential Lead" ? ("True") : ("false")} />
+        disable={this.state.Type === ("For Rent" || "Potential Lead") ? ("true") : ("false")}
+         />
         <span>For sale</span>
       </label>
     </p>
@@ -90,7 +91,8 @@ constructor(){
         name="Type"
         value="For Rent"
         onChange={this.handleCheck}
-        disabled={this.state.Type === "For Sale" || "Potential Lead" ? ("True") : ("false")} />
+        disable={this.state.Type === "For Sale" || "Potential Lead" ? ("true") : ("false")}
+        />
         <span>For Rent</span>
       </label>
     </p>
@@ -103,7 +105,8 @@ constructor(){
         name="Type" 
         value="Potential Lead"
         onChange={this.handleCheck}
-        disabled={this.state.Type === "For Rent" || "For Sale" ? ("True") : ("false")} />
+        disable={this.state.Type === "For Rent" || "For Sale" ? ("true") : ("false")}
+         />
         <span>Potential Lead</span>
       </label>
     </p>
@@ -145,6 +148,7 @@ constructor(){
               onChange={this.handleInputChange}
               name="Bedrooms"
               value={this.state.Bedrooms}/>
+                <span className="helper-text" data-error="wrong" data-success="right">Bed</span>
             </div>
 {/* Bath */}
             <div className="input-field col s3">
@@ -155,6 +159,7 @@ constructor(){
               onChange={this.handleInputChange}
               name="Bath"
               value={this.state.Bath}/>
+                <span className="helper-text" data-error="wrong" data-success="right">Bath</span>
               </div>
 
             {/* Sqft */}
@@ -166,6 +171,7 @@ constructor(){
               onChange={this.handleInputChange}
               name="sqft"
               value={this.state.sqft}/>
+                  <span className="helper-text" data-error="wrong" data-success="right">SqFt</span>
             </div>
             </div>
 
@@ -192,7 +198,7 @@ constructor(){
               type="text" 
               onChange={this.handleInputChange}
               name="realtor"
-              value={this.state.Address}/>
+              value={this.state.realtor}/>
               <span className="helper-text" data-error="wrong" data-success="right">Realtor</span>
             </div>
             </div>
@@ -200,12 +206,13 @@ constructor(){
             <div className="row">
             <div className="input-field col s3">
               <input 
-              placeholder="List Price" 
+              placeholder="$1.5 mil" 
               id="ListPrice" 
               type="text" 
               onChange={this.handleInputChange}
               name="price"
               value={this.state.price}/>
+             <span className="helper-text" data-error="wrong" data-success="right">Price</span>
             </div>
             </div>
             <button onClick={this.submitAlert} className="btn btn-outline-secondary">Submit</button>
