@@ -1,5 +1,6 @@
 #  Vendemon app <strong>(Coming Soon!)<strong>
-![alt text](https://github.com/Kylepadilla/vendemon/blob/master/client/src/assets/images/Vendi-instagram_profile_image.png)
+
+![alt text](https://github.com/Kylepadilla/vendemon/blob/master/client/src/assets/images/Vendi-README_image.png)
 
 
 A streamline sales force multiplier application designed to birdge the communication gap between the field and sales teams. 
