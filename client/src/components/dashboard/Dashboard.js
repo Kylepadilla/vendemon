@@ -7,9 +7,12 @@ import Chat from '../Chat/Chat';
 import  Alerts  from '../layout/Alerts';
 import { Button, Row, Col, Modal, Parallax, Collapsible, CollapsibleItem } from 'react-materialize';
 import SendAlert from "../SendAlert";
-// import WeatherContainer from "../Weather";
+import WeatherContainer from "../Weather";
 import Calendar from "../../Calendar";
+import WeatherContainer from "../Weather";
+import Calendar from "../Calendar";
 import "./styles.css";
+import ZillowWidget from "../Widget";
 
 
 class Dashboard extends Component {
@@ -63,14 +66,19 @@ return(
 
 {/* ================================================================================== */}
 
+{/* ================================Weather======================================= */}
+                                <WeatherContainer></WeatherContainer>
+{/* ========================================================================================= */}
 <div className="center-align all-features">
 {/* =============================Calendar & Modal================================ */}
-
-
-        <Modal header="Calendar" fixedFooter trigger={<Button>Calendar</Button>}>
+          <Modal header="Calendar" fixedFooter trigger={<Button>Calendar</Button>}>
                       <Calendar></Calendar>
         </Modal>  
 {/* ============================================================================== */}
+  
+  
+  
+
 
 
 
@@ -138,6 +146,16 @@ return(
  {/* ========================================================= */}
 
  </Col>
+
+
+
+{/* ================================Zillow Widget======================================= */}
+                                <ZillowWidget></ZillowWidget>
+{/* ========================================================================================= */}
+
+
+
+</Col>
 
 
         
