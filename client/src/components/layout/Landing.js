@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Row,Col,Slide, Caption,Slider } from "react-materialize";
 
+
 class Landing extends Component {
   render() {
     return (
