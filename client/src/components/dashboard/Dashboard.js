@@ -49,27 +49,44 @@ return(
 
 {this.state.start ? (
   <div>
+{/* New Row */}
 <Row>
 {/* Col-start */}
-<Col s={6} className="teal white-text">
-<WeatherContainer/>
+    <Col s={6} className="teal white-text">
+    {/* ================================WEATHER======================= */}
+                                <WeatherContainer/>
+    {/* ================================WEATHER(end)======================= */}
+
+
+
 
 {/* ===================SEND ALERT BUTTON & MODAL=================== */}
         <Modal header="Modal Header" fixedFooter trigger={<Button>Send Alert</Button>}>
                 <SendAlert></SendAlert>
         </Modal>  
+{/* ===================SEND ALERT BUTTON & MODAL(end)=================== */}
 </Col>
+
+
 
 
 {/* Col-start */}
 <Col s={6} className="teal white-text">
 
-{/* =========================WELCOME....(name)==================== */}
+
+
+
+{/* =========================WELCOME============================= */}
 
           <div className="landing-copy col s12 center-align">
             <h4><b>Welcome Back, </b> {user.name.split(" ")[0]}</h4>
 
           </div>
+{/* =========================WELCOME(end)==================== */}
+
+
+
+
 {/* ============================LOG OUT BUTTON====================== */}
           <button
               style={{
@@ -81,59 +98,57 @@ return(
               onClick={this.onLogoutClick}
               className="btn btn-large waves-effect waves-light hoverable blue accent-3"
           >Logout</button>
+{/* ============================LOG OUT BUTTON(end)====================== */}
 
 
 
-{/* ================================WEATHER======================= */}
 
 
 
 
 {/* ============================CHAT & MODAL======================== */}
-    <Modal header="Modal Header" trigger={<Button>Chat!</Button>}>
-    <p>Chat below</p>
-    <Chat/>
-    </Modal> 
-
+                          <Modal header="Modal Header" trigger={<Button>Chat!</Button>}>
+                          <p>Chat below</p>
+                          <Chat/>
+                          </Modal> 
+{/* ============================CHAT & MODAL (end)======================== */}
 
 </Col>
 </Row>
 
-  <Row>
 
+{/* New Row */}
+  <Row>
 {/* Col-start */}
 <Col s={12} className="teal white-text">
 {/* =======================ALERTS================ */}
 
-<Collapsible popout>
-<CollapsibleItem header="Saved Properties" icon="place">
-<Alerts/>
-</CollapsibleItem>
-</Collapsible>
+                            <Collapsible popout>
+                            <CollapsibleItem header="Saved Properties" icon="place">
+                            <Alerts/>
+                            </CollapsibleItem>
+                            </Collapsible>
 
-{/* ================================= */}
+{/* ===============ALERT(end)================== */}
+
 </Col> 
 </Row>
 <Row>
 {/* Col-start */}
 <Col s={4} className="teal white-text">
+
 {/* ======================GOOGLE Maps Container=================== */}
- <MapContainer/>
- {/* ================================ */}
+                              <MapContainer/>
+ {/* ======================GOOGLE Maps Container(end)========== */}
  </Col>
 
 
-
-{/* ==========================EMPTY COLUMN======================== */}
-    <Col s={4} className="teal white-text">
-    
-    
+        <Col s={4} className="teal white-text">
     </Col>
-
   </Row>
   </div>
 ) : (
-
+// This is what renders on load and is the announcements page for the user
 <div>
 <Parallax image={<img src="https://wallpaperplay.com/walls/full/5/2/6/99911.jpg" alt="unavailable" />} />
 <div className="section white">
