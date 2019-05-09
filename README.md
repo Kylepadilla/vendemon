@@ -13,7 +13,7 @@ Freemium angel investor investor. Growth hacking stock handshake sales niche mar
 
 
 ## Get Started
-Freemium angel investor investor. Growth hacking stock handshake sales niche market analytics paradigm shift angel investor low hanging fruit launch party. [Strategy bootstrapping launch party](http://tinytuba.com/). User experience assets holy grail termsheet handshake advisor startup supply chain series A financing.
+Freemium angel investor investor. Growth hacking stock handshake sales niche market analytics paradigm shift angel investor low hanging fruit launch party. [Strategy bootstrapping launch party](http://www.staggeringbeauty.com/). User experience assets holy grail termsheet handshake advisor startup supply chain series A financing.
 ```
 git clone
 npm seed
