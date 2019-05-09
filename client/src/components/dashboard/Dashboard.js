@@ -8,8 +8,9 @@ import  Alerts  from '../layout/Alerts';
 import { Button, Row, Col, Modal, Parallax, Collapsible, CollapsibleItem } from 'react-materialize';
 import SendAlert from "../SendAlert";
 import WeatherContainer from "../Weather";
-import Calendar from "../../Calendar";
+import Calendar from "../Calendar";
 import "./styles.css";
+import ZillowWidget from "../Widget";
 
 
 class Dashboard extends Component {
@@ -63,6 +64,10 @@ return(
   <h4><b>Welcome Back, </b> {user.name.split(" ")[0]}</h4>
 </div>
 {/* ================================================================================== */}
+
+{/* ================================Weather======================================= */}
+                                <WeatherContainer></WeatherContainer>
+{/* ========================================================================================= */}
 
 
 
@@ -139,8 +144,8 @@ return(
 
 
 
-{/* ================================WEATHER======================================= */}
-                                <WeatherContainer/>
+{/* ================================Zillow Widget======================================= */}
+                                <ZillowWidget></ZillowWidget>
 {/* ========================================================================================= */}
 
 
