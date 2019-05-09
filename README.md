@@ -1,4 +1,3 @@
-#  Vendemon app <strong>(Coming Soon!)<strong>
 
 ![alt text](https://github.com/Kylepadilla/vendemon/blob/master/client/src/assets/images/Vendi-README_image.png)
 
