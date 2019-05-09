@@ -7,7 +7,7 @@ class Landing extends Component {
     return (
       <div className = "landing">
       <Row>
-      <Col s={12} className="white black-text" style={{ }}>
+      <Col s={12} className="white black-text">
       <div style={{ height: "30vh", marginLeft:"auto", marignRight:"auto", }} className="container valign-wrapper">
       <div className="row">
         <div className="col s12 center-align" style={{marginLeft:"110px"}}>
@@ -26,7 +26,7 @@ class Landing extends Component {
               borderRadius: "3px",
               letterSpacing: "1.5px"
             }}
-            className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+            className="btn btn-large waves-effect waves-light hoverable darkslategray accent-3"
           >
             Register
           

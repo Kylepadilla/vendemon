@@ -1,6 +1,7 @@
 
 import React from "react";
 import io from "socket.io-client";
+import "./styles.css";
 
 class Chat extends React.Component{
     constructor(props){
@@ -41,7 +42,7 @@ class Chat extends React.Component{
                     <div className="col-4">
                         <div className="card">
                             <div className="card-body">
-                                <div className="card-title">Global Chat</div>
+                                <div className="card-title">Chat</div>
                                 <hr/>
                                 <div className="messages">
                                     {this.state.messages.map(message => {

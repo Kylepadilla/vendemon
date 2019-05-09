@@ -5,6 +5,13 @@
 .btn{
    background-color: rgb(35,68,111);
    font-family: 'Roboto', sans-serif;
+   margin-right: 10px;
+   
+}
+.btn:hover{
+   background-color:#919392;
+   font-family: 'Roboto', sans-serif;
+   
 }
 
 h4 , p{
@@ -16,3 +23,9 @@ h4 , p{
     border-radius: 0 0 2px 2px;
     background-color: rgb(35,68,111);
 }
+
+/* .all-features{
+    position: relative;
+    float: right;
+    
+} */

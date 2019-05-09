@@ -7,7 +7,7 @@ import Chat from '../Chat/Chat';
 import  Alerts  from '../layout/Alerts';
 import { Button, Row, Col, Modal, Parallax, Collapsible, CollapsibleItem } from 'react-materialize';
 import SendAlert from "../SendAlert";
-import WeatherContainer from "../Weather";
+// import WeatherContainer from "../Weather";
 import Calendar from "../../Calendar";
 import "./styles.css";
 
@@ -56,19 +56,18 @@ return(
 <Col s={12} className="white black-text">
 
 
-
-
 {/* =====================================WELCOME============================================= */}
 <div className="landing-copy col s12 center-align">
   <h4><b>Welcome Back, </b> {user.name.split(" ")[0]}</h4>
 </div>
+
 {/* ================================================================================== */}
 
-
-
+<div className="center-align all-features">
 {/* =============================Calendar & Modal================================ */}
-<div className="center-align">
-        <Modal header="Modal Header" fixedFooter trigger={<Button>Calendar</Button>}>
+
+
+        <Modal header="Calendar" fixedFooter trigger={<Button>Calendar</Button>}>
                       <Calendar></Calendar>
         </Modal>  
 {/* ============================================================================== */}
@@ -77,8 +76,7 @@ return(
 
 
 {/* ============================CHAT & MODAL======================== */}
-        <Modal header="Modal Header" trigger={<Button>Chat!</Button>}>
-                  <p>Chat below</p>
+        <Modal header="Chat" trigger={<Button>Chat!</Button>}>
                       <Chat/>
         </Modal> 
 {/* ============================================================== */}
@@ -87,7 +85,7 @@ return(
 
 
 {/* ===================SEND ALERT BUTTON & MODAL=================== */}
-        <Modal header="Modal Header" fixedFooter trigger={<Button>Send Alert</Button>}>
+        <Modal header="Alerts" fixedFooter trigger={<Button>Send Alert</Button>}>
                               <SendAlert></SendAlert>
         </Modal>  
 {/* ========================================================== */}
@@ -98,7 +96,13 @@ return(
         <Button onClick={this.onLogoutClick}>Log Out</Button>           
 {/* ===================================================================== */}
 </div>
+
+
+
 </Col>
+
+
+
 </Row>
 
 
@@ -134,18 +138,7 @@ return(
  {/* ========================================================= */}
 
  </Col>
-{/* Col-start */}
-<Col s={6} className="white black-text">
 
-
-
-{/* ================================WEATHER======================================= */}
-                                <WeatherContainer/>
-{/* ========================================================================================= */}
-
-
-
-</Col>
 
         
 </Row>
@@ -159,7 +152,7 @@ return(
 <div>
 <Parallax image={<img src="https://images.pexels.com/photos/416942/pexels-photo-416942.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="unavailable" />} />
 <div className="section white">
-<div className="row container">
+<div className="row container" style={{marginLeft:"auto" }}>
 <h2 className="header">
 <b>Welcome Back,</b> {user.name.split(" ")[0]}
 </h2>
@@ -172,7 +165,7 @@ Social media market equity investor innovator non-disclosure agreement founders 
 
 Angel investor seed money direct mailing business plan social proof facebook stealth backing scrum project vesting period holy grail churn rate partnership low hanging fruit. Business model canvas android angel investor metrics traction startup research & development business-to-consumer influencer bandwidth. IPad monetization non-disclosure agreement business plan partnership disruptive validation early adopters low hanging fruit paradigm shift angel investor research & development facebook. Success venture creative handshake monetization mass market advisor infrastructure equity client.
 </p>
-<button type="button" className="btn btn-large waves-effect waves-light hoverable blue accent-2" onClick={this.onstart}>Dashboard</button>
+<button type="button" className="btn btn-large waves-effect waves-light hoverable darkslategray  accent-2" onClick={this.onstart}>Dashboard</button>
 </div>
 </div>
 <Parallax image={<img src="https://images.pexels.com/photos/416942/pexels-photo-416942.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="unavailable" />} />
