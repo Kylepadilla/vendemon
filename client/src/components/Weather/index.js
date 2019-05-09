@@ -1,5 +1,6 @@
-import React, {Component} from 'react'
-import axios from 'axios'
+import React, {Component} from 'react';
+import axios from 'axios';
+import "./styles.css";
 
 class WeatherContainer extends Component {
     constructor () {
@@ -34,7 +35,7 @@ axios.get("http://api.openweathermap.org/data/2.5/weather?q=orlando,us&appid="+a
 render(){
 
 return(
-<div className="weather">
+<div className="weather" >
 
 <div className="row">
     <div className="col s12 m6">
@@ -56,5 +57,6 @@ return(
 )
 };
 }
+
 export default WeatherContainer
 

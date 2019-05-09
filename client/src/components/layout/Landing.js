@@ -51,7 +51,7 @@ class Landing extends Component {
       <Col s={12} className="white black-text">
       
 <Slider>
-<Slide image={<img alt="Register Now" src="https://images.pexels.com/photos/212324/pexels-photo-212324.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />}>
+<Slide image={<img alt="Register Now" src="https://images.pexels.com/photos/935870/pexels-photo-935870.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />}>
 <Caption>
 <h3 style={{ fontSize:"80px"  } }>
 Register Now 

@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import {PropTypes} from "prop-types";
 import { connect } from "react-redux";
 import  {logoutUser}  from "../../actions/authActions";
-import  MapContainer  from '../Maps'
-import Chat from '../Chat/Chat'
-import  Alerts  from '../layout/Alerts'
+import  MapContainer  from '../Maps';
+import Chat from '../Chat/Chat';
+import  Alerts  from '../layout/Alerts';
 import { Button, Row, Col, Modal, Parallax, Collapsible, CollapsibleItem } from 'react-materialize';
-import SendAlert from "../SendAlert"
-import WeatherContainer from "../Weather"
+import SendAlert from "../SendAlert";
+import WeatherContainer from "../Weather";
 import Calendar from "../../Calendar";
+import "./styles.css";
 
 
 class Dashboard extends Component {
@@ -50,20 +51,9 @@ return(
   <div>
 {/* New Row */}
 <Row>
+
 {/* Col-start */}
-    <Col s={6} className="teal white-text">
-
-
-
-{/* ================================WEATHER======================================= */}
-                                <WeatherContainer/>
-{/* ========================================================================================= */}
-
-
-
-</Col>
-{/* Col-start */}
-<Col s={6} className="teal white-text">
+<Col s={12} className="white black-text">
 
 
 
@@ -77,6 +67,7 @@ return(
 
 
 {/* =============================Calendar & Modal================================ */}
+<div className="center-align">
         <Modal header="Modal Header" fixedFooter trigger={<Button>Calendar</Button>}>
                       <Calendar></Calendar>
         </Modal>  
@@ -106,6 +97,7 @@ return(
 {/* ============================LOG OUT BUTTON====================== */}
         <Button onClick={this.onLogoutClick}>Log Out</Button>           
 {/* ===================================================================== */}
+</div>
 </Col>
 </Row>
 
@@ -113,7 +105,7 @@ return(
 {/* New Row */}
   <Row>
 {/* Col-start */}
-<Col s={12} className="teal white-text">
+<Col s={12} className="white black-text">
 
 
 
@@ -132,7 +124,7 @@ return(
 {/* Row Start */}
 <Row>
 {/* Col-start */}
-<Col s={4} className="teal white-text">
+<Col s={6} className="white black-text">
 
 
 
@@ -142,10 +134,20 @@ return(
  {/* ========================================================= */}
 
  </Col>
+{/* Col-start */}
+<Col s={6} className="white black-text">
 
 
-        <Col s={4} className="teal white-text">
-    </Col>
+
+{/* ================================WEATHER======================================= */}
+                                <WeatherContainer/>
+{/* ========================================================================================= */}
+
+
+
+</Col>
+
+        
 </Row>
   </div>
 
@@ -155,7 +157,7 @@ return(
 
 // This is what renders on load and is the announcements page for the user
 <div>
-<Parallax image={<img src="https://wallpaperplay.com/walls/full/5/2/6/99911.jpg" alt="unavailable" />} />
+<Parallax image={<img src="https://images.pexels.com/photos/416942/pexels-photo-416942.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="unavailable" />} />
 <div className="section white">
 <div className="row container">
 <h2 className="header">
@@ -170,10 +172,10 @@ Social media market equity investor innovator non-disclosure agreement founders 
 
 Angel investor seed money direct mailing business plan social proof facebook stealth backing scrum project vesting period holy grail churn rate partnership low hanging fruit. Business model canvas android angel investor metrics traction startup research & development business-to-consumer influencer bandwidth. IPad monetization non-disclosure agreement business plan partnership disruptive validation early adopters low hanging fruit paradigm shift angel investor research & development facebook. Success venture creative handshake monetization mass market advisor infrastructure equity client.
 </p>
-<button type="button" className="btn btn-large waves-effect waves-light hoverable blue accent-3" onClick={this.onstart}>Dashboard</button>
+<button type="button" className="btn btn-large waves-effect waves-light hoverable blue accent-2" onClick={this.onstart}>Dashboard</button>
 </div>
 </div>
-<Parallax image={<img src="https://wallpaperplay.com/walls/full/5/2/6/99911.jpg" alt="unavailable" />} />
+<Parallax image={<img src="https://images.pexels.com/photos/416942/pexels-photo-416942.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="unavailable" />} />
 </div>
 
 )
@@ -195,6 +197,8 @@ Dashboard.propTypes = {
 const mapStateToProps = state => ({
   auth: state.auth
 });
+
+
 
 export default connect(
   mapStateToProps,
