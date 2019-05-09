@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
+import {Parallax} from 'react-materialize'
+
 
 class Register extends Component {
   constructor() {
@@ -53,6 +55,8 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
+<div>
+<Parallax image={<img src="https://images.pexels.com/photos/290595/pexels-photo-290595.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="unavailable"/>} />
       <div className="container">
         <div className="row">
           <div className="col s8 offset-s2">
@@ -143,6 +147,8 @@ class Register extends Component {
           </div>
         </div>
       </div>
+      <Parallax image={<img src="https://images.pexels.com/photos/1452701/pexels-photo-1452701.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="unavailable"/>} />
+</div>
     );
   }
 }
