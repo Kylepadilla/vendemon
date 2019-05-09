@@ -17,7 +17,6 @@ class Navbar extends Component {
             <Link to="/" style={{fontFamily: "monospace"}}className="col s5 brand-logo left-align black-text">
                   <img src={logo} alt="unavailable"/>
             </Link>
-
           </div>
         </nav>
       </div> 
