@@ -11,7 +11,9 @@ import SendAlert from "../SendAlert";
 import Calendar from "../../components/Calendar";
 import "./styles.css";
 import ZillowWidget from "../Widget";
-
+import { Link } from 'react-router-dom'
+import logo from '../../assets/images/Vendi-README_image.png'
+import icon from '../../assets/images/Vendi-Icon_Big.png'
 
 class Dashboard extends Component {
 
@@ -50,6 +52,15 @@ return(
 {/* ======================================================================================== */}
 {this.state.start ? (
   <div>
+          <nav style={{backgroundColor:"white"}}>
+      {/* <div className="nav-wrapper" style={{"height": "165px", "backgroundColor": "white"}}> */}
+        <Link to="/" className="brand-logo"><img src={icon} alt="unavailable"/><div>
+        <div className="landing-copy col s12 left-align" style={{marginTop:"100px"}}>
+      <h4><b>Welcome Back, </b> {user.name.split(" ")[0]}</h4>
+    </div>
+          </div></Link>
+
+</nav>
 {/* New Row */}
 <Row>
 
@@ -58,9 +69,7 @@ return(
 
 
 {/* =====================================WELCOME============================================= */}
-<div className="landing-copy col s12 center-align">
-  <h4><b>Welcome Back, </b> {user.name.split(" ")[0]}</h4>
-</div>
+
 
 {/* ================================================================================== */}
 
