@@ -13,6 +13,9 @@ Freemium angel investor investor. Growth hacking stock handshake sales niche mar
 
 
 ## Get Started
+
+To view the deployed site at: [Vendi _Real data solutions]("https://vendemon.herokuapp.com/")
+
 Freemium angel investor investor. Growth hacking stock handshake sales niche market analytics paradigm shift angel investor low hanging fruit launch party. [Strategy bootstrapping launch party](http://www.staggeringbeauty.com/). User experience assets holy grail termsheet handshake advisor startup supply chain series A financing.
 
 1. Clone the Repo:
