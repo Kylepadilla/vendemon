@@ -115,7 +115,7 @@ class Login extends Component {
                     marginTop: "1rem"
                   }}
                   type="submit"
-                  className="btn btn-large waves-effect hoverable white-text black"
+                  className="btn btn-large waves-effect waves-light hoverable darkslategray  accent-2"
                 >
                 <i class="material-icons right">send</i>
                   Login

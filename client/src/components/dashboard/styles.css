@@ -24,8 +24,6 @@ h4 , p{
     background-color: rgb(35,68,111);
 }
 
-/* .all-features{
-    position: relative;
-    float: right;
-    
-} */
+.modal-content h4{
+    color: rgb(35,68,111);
+}

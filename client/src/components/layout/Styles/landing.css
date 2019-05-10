@@ -4,10 +4,15 @@
 }
 
 h4, h2{
-    color: #ee6e73
+    font-family: Roboto, sans-serif;
+    color: #23446f;
 }
 
 .raw{
     text-align: center
+}
+
+.page-footer {
+    background:  #23446f;
 }
 
