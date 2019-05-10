@@ -29,7 +29,7 @@ export class MapContainer extends Component {
 
 const style = {
   maxWidth: '45%',
-  height: '40vh',
+  height: '70vh',
   marginLeft: "25px"
 
 }
