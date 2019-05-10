@@ -7,7 +7,7 @@ what does frodo have to say about it?
 
 
 ## Overview
-Freemium angel investor investor. Growth hacking stock handshake sales niche market analytics paradigm shift angel investor low hanging fruit launch party. Strategy bootstrapping launch party. [User experience assets holy grail](https://www.youtube.com/watch?v=nEqwKNNQBwc) termsheet handshake advisor startup supply chain series A financing.
+Freemium angel investor investor. Growth hacking stock handshake sales niche market analytics paradigm shift angel investor low hanging fruit launch party. Strategy bootstrapping launch party. [User experience assets holy grail](http://beesbeesbees.com/) termsheet handshake advisor startup supply chain series A financing.
 
 
 
