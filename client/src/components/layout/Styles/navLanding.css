@@ -1,9 +1,12 @@
 .navLand{
 font-family: Roboto, sans-serif;
 font-weight: 400;
-color: #333333
+color: #ee6e73
 }
 
+.nav-wrapper{
+    background-color: white
+}
 .block{
      height: 165px;
      background-color: white;

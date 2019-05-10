@@ -56,7 +56,7 @@ class Login extends Component {
     return (
 <div>
 <Parallax  image={<img src="https://images.pexels.com/photos/372462/pexels-photo-372462.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="unavailable"/>} />
-              <div className="container">
+              <div className="container" style={{marginBottom:"75px", marginTop:"150px"}}>
         <div style={{ marginTop: "4rem" }} className="row">
           <div className="col s8 offset-s2" style={{"margin-bottom": "50px"}}>
             <Link to="/" className="btn-flat waves-effect">

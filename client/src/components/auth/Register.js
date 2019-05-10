@@ -57,7 +57,7 @@ class Register extends Component {
     return (
 <div>
 <Parallax image={<img src="https://images.pexels.com/photos/290595/pexels-photo-290595.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="unavailable"/>} />
-      <div className="container">
+      <div className="container" style={{marginBottom:"40px", marginTop:"40px"}}>
         <div className="row">
           <div className="col s8 offset-s2">
             <Link to="/" className="btn-flat waves-effect">
